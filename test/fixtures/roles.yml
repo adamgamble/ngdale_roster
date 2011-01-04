@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  wednesday_night: false
+  sunday_morning: false
+  sunday_night: false
+  all_month: false
+
+two:
+  name: MyString
+  wednesday_night: false
+  sunday_morning: false
+  sunday_night: false
+  all_month: false

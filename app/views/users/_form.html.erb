@@ -1,0 +1,52 @@
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "Email Address" %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, "Confirm Password" %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <h2>Wednesday Night</h2>
+    <% Role.for_wednesday_night.each do |role| %>
+      <input type="checkbox" name="roles[]" value="<%=role.id%>" />
+      <label><%=role.name%></label>
+      <br />
+    <% end %>
+  </p>
+  <p>
+    <h2>Sunday Morning</h2>
+    <% Role.for_sunday_morning.each do |role| %>
+      <input type="checkbox" name="roles[]" value="<%=role.id%>" />
+      <label><%=role.name%></label>
+      <br />
+    <% end %>
+  </p>
+  <p>
+    <h2>Sunday Night</h2>
+    <% Role.for_sunday_night.each do |role| %>
+      <input type="checkbox" name="roles[]" value="<%=role.id%>" />
+      <label><%=role.name%></label>
+      <br />
+    <% end %>
+  </p>
+  <p>
+    <h2>All Month</h2>
+    <% Role.for_all_month.each do |role| %>
+      <input type="checkbox" name="roles[]" value="<%=role.id%>" />
+      <label><%=role.name%></label>
+      <br />
+    <% end %>
+  </p>
+  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
+<% end %>
