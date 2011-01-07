@@ -7,6 +7,10 @@ class Role < ActiveRecord::Base
   has_many :user_join_roles
   has_many :users, :through => :user_join_roles
 
+  def to_s
+    "#{name}"
+  end
+
   def add_user_to_role! user
     return false if !user.is_a?(User)
     ujr = UserJoinRole.find(:first, :conditions => {:user_id => user.id, :role_id => id})
