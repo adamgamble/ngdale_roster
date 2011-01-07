@@ -2,16 +2,7 @@
   =f.label      :name
   =f.text_field :name
   %br
-  =f.check_box  :wednesday_night
-  =f.label      :wednesday_night
-  %br
-  =f.check_box  :sunday_morning
-  =f.label      :sunday_morning
-  %br
-  =f.check_box  :sunday_night
-  =f.label      :sunday_night
-  %br
-  =f.check_box  :all_month
-  =f.label      :all_month
+  =f.label      :period
+  =f.select     :period, Role::PERIODS
   %br
   =f.submit

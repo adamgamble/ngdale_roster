@@ -10,17 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110104042532) do
+ActiveRecord::Schema.define(:version => 20110107155151) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.boolean  "wednesday_night"
-    t.boolean  "sunday_morning"
-    t.boolean  "sunday_night"
-    t.boolean  "all_month"
     t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "period"
   end
 
   create_table "user_join_roles", :force => true do |t|

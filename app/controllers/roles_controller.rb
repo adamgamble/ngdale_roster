@@ -4,7 +4,10 @@ class RolesController < ApplicationController
   before_filter :load_new_role, :only => [:new, :create]
 
   def load_all_roles
-    @roles = Role.all
+    @wednesday_night_roles = Role.for_wednesday_night.find(:all, :order => "period ASC")
+    @sunday_morning_roles = Role.for_sunday_morning.find(:all, :order => "period ASC")
+    @sunday_night_roles = Role.for_sunday_night.find(:all, :order => "period ASC")
+    @all_month_roles = Role.for_all_month.find(:all, :order => "period ASC")
   end
 
   def load_role

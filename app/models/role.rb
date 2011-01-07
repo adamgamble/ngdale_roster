@@ -1,11 +1,14 @@
 class Role < ActiveRecord::Base
-  scope :for_wednesday_night, lambda {{:conditions => {:wednesday_night => true}}}
-  scope :for_sunday_morning,  lambda {{:conditions => {:sunday_morning => true}}}
-  scope :for_sunday_night,    lambda {{:conditions => {:sunday_night => true}}}
-  scope :for_all_month,       lambda {{:conditions => {:all_month => true}}}
+  PERIODS = ["Wednesday Night", "Sunday Morning","Sunday Night","All Month"]
+  scope :for_wednesday_night, lambda {{:conditions => {:period => "Wednesday Night"}}}
+  scope :for_sunday_morning,  lambda {{:conditions => {:period => "Sunday Morning"}}}
+  scope :for_sunday_night,    lambda {{:conditions => {:period => "Sunday Night"}}}
+  scope :for_all_month,       lambda {{:conditions => {:period => "All Month"}}}
 
   has_many :user_join_roles
   has_many :users, :through => :user_join_roles
+
+  validates_inclusion_of :period, :in => PERIODS, :message => "Period must be either Wednesday Night, Sunday Morning, Sunday Night, or All Month"
 
   def to_s
     "#{name}"

@@ -1,7 +1,19 @@
 =link_to "New Role", new_role_path
 %br
 %br
--@roles.each do |role|
+%h2 Wednesday Night
+-@wednesday_night_roles.each do |role|
   =link_to role, role
   %br
-
+%h2 Sunday Morning
+-@sunday_morning_roles.each do |role|
+  =link_to role, role
+  %br
+%h2 Sunday Night
+-@sunday_night_roles.each do |role|
+  =link_to role, role
+  %br
+%h2 All Month
+-@all_month_roles.each do |role|
+  =link_to role, role
+  %br
