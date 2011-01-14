@@ -1,0 +1,19 @@
+= "#{@user.username} - "
+=link_to "Edit User",edit_user_path(@user)
+
+%h2 Wednesday Night
+-@user.roles.for_wednesday_night.each do |role|
+  =role
+  %br
+%h2 Sunday Morning
+-@user.roles.for_sunday_morning.each do |role|
+  =role
+  %br
+%h2 Sunday Night
+-@user.roles.for_sunday_night.each do |role|
+  =role
+  %br
+%h2 All Month
+-@user.roles.for_all_month.each do |role|
+  =role
+  %br

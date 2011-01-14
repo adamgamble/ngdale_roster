@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :user_join_roles
   has_many :roles, :through => :user_join_roles
+
   # login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)
