@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  role_id: 1
+  date: 2011-01-14 16:37:20
+
+two:
+  user_id: 1
+  role_id: 1
+  date: 2011-01-14 16:37:20
