@@ -12,6 +12,8 @@ NgdaleRoster::Application.routes.draw do
   resources :users
   resources :roles
 
+  root :to => "duties#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

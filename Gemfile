@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.1'
 gem 'haml'
 gem 'nifty-generators'
+gem 'ruby-debug19'
+gem 'chronic'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

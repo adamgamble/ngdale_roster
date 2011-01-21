@@ -1,0 +1,40 @@
+|
+-12.times do |i|
+  = link_to Time.now.beginning_of_year.advance(:months => i).strftime("%B"), "?month=#{i + 1}"
+  |
+%h1= "Duty roster for #{@month.strftime("%B")}"
+%table{:border => "1px"}
+  %tr
+    %th{:colspan=>number_of_sundays_for_month(@month) + 1}="Sundays"
+  %tr
+    %th Role
+    - number_of_sundays_for_month(@month).times do |i|
+      %th=nth_sunday_of_the_month(i+1, @month).strftime("%m/%d")
+    - Role.for_sunday_morning.each do |role|
+      %tr
+        %td="Morning #{role.name}"
+        - number_of_sundays_for_month(@month).times do |i|
+          %td N/A
+    - Role.for_sunday_night.each do |role|
+      %tr
+        %td="Night #{role.name}"
+        - number_of_sundays_for_month(@month).times do |i|
+          %td N/A
+  %tr
+    %th{:colspan=>number_of_sundays_for_month(@month) + 1}="All Month"
+  - Role.for_all_month.each do |role|
+    - role.amount.times do |i|
+      %tr
+        %td=role.name
+        %td N/A
+  %tr
+    %th{:colspan=>number_of_wednesdays_for_month(@month) + 1}="Wednesdays"
+  %tr
+    %th Role
+    - number_of_wednesdays_for_month(@month).times do |i|
+      %th=nth_wednesday_of_the_month(i+1, @month).strftime("%m/%d")
+    - Role.for_wednesday_night.each do |role|
+      %tr
+        %td=role.name
+        - number_of_wednesdays_for_month(@month).times do |i|
+          %td N/A
